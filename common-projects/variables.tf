@@ -20,7 +20,6 @@ variable "projects" {
   default = {}
 }
 
-
 #
 # Folder structure
 #
