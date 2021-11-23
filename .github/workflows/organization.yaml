@@ -51,7 +51,7 @@ jobs:
       id: terrascan
       uses: accurics/terrascan-action@main
       with:
-        iac_dir: './terraform'
+        iac_dir: './organization'
         iac_type: 'terraform'
         iac_version: 'v14'
         policy_type: 'gcp'
