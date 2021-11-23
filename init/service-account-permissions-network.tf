@@ -12,7 +12,7 @@ locals {
   ]
   network_project_roles = {
     "shared-vpc-329414" = [
-      "roles/owner"
+      "roles/compute.networkAdmin"
     ],
   }
 }

@@ -11,6 +11,8 @@ locals {
     "roles/resourcemanager.projectCreator",
     "roles/resourcemanager.folderCreator",
     "roles/billing.user",
+    # To be able to create Shared VPC in the project
+    "roles/compute.xpnAdmin",
   ]
   common_projects_project_roles = {
   }

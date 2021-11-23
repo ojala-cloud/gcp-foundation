@@ -8,12 +8,10 @@ locals {
   init_service_account = google_service_account.terraform["init"].email
 
   init_organization_roles = [
-    "roles/owner"
+    "roles/iam.serviceAccountAdmin",
+    "roles/resourcemanager.organizationAdmin",
   ]
   init_project_roles = {
-    "shared-vpc-329414" = [
-      "roles/owner"
-    ],
     "home-infrastructure-254608" = [
       "roles/compute.networkAdmin"
     ]
