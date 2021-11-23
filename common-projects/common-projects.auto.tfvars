@@ -22,17 +22,19 @@ projects = {
   # Network hub for Shared VPCs and connectivity
   #
   network-hub = {
-    name   = "Demo Network Hub"
-    id     = "pojala-network-hub"
-    folder = "infrastructure"
+    name              = "Demo Network Hub"
+    id                = "pojala-network-hub"
+    random_project_id = true
+    folder            = "infrastructure"
   }
   #
   # DNS Hub for shared DNS infrastructure and Cloud DNS
   #
   dns-hub = {
-    name   = "Demo DNS Hub"
-    id     = "pojala-dns-hub"
-    folder = "infrastructure"
+    name              = "Demo DNS Hub"
+    id                = "pojala-dns-hub"
+    random_project_id = true
+    folder            = "infrastructure"
     apis = [
       "clouddns.googleapis.com",
     ]
