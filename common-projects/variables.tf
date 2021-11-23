@@ -6,6 +6,7 @@
 # Project details
 #
 
+
 variable "projects" {
   description = "Common project details"
   type = map(object({
