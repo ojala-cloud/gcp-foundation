@@ -43,7 +43,7 @@ variable "module_versions" {
   description = "Required versions for modules"
   type        = map(string)
   default = {
-    "project-factory" = "~> 11.2",
+    "project-factory" = "~> 12.2",
   }
 }
 
