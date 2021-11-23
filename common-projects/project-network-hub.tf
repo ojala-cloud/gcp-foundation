@@ -13,6 +13,8 @@ module "network_hub" {
   random_project_id = var.projects["network-hub"].random_project_id == false ? false : true
   billing_account   = var.projects["network-hub"].billing_account == null ? var.gcp_default_billing_account : var.projects["network-hub"].billing_account
 
+  enable_shared_vpc_host_project = true
+
   activate_apis = concat(
     var.default_apis,
     var.projects["network-hub"].apis == null ? [] : var.projects["network-hub"].apis,

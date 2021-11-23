@@ -23,8 +23,8 @@ projects = {
   #
   network-hub = {
     name              = "Demo Network Hub"
-    #id                = "pojala-network-hub"
-    random_project_id = true
+    id                = "pojala-network-hub"
+    random_project_id = false
     folder            = "infrastructure"
   }
   #
@@ -32,8 +32,8 @@ projects = {
   #
   dns-hub = {
     name              = "Demo DNS Hub"
-    #id                = "pojala-dns-hub"
-    random_project_id = true
+    id                = "pojala-dns-hub"
+    random_project_id = false
     folder            = "infrastructure"
     apis = [
       "clouddns.googleapis.com",
