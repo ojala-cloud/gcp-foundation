@@ -10,7 +10,7 @@ variable "projects" {
   description = "Common project details"
   type = map(object({
     name              = string
-    id                = string
+    id                = optional(string)
     folder            = optional(string)
     random_project_id = optional(bool)
     billing_account   = optional(string)
