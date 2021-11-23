@@ -8,7 +8,9 @@ locals {
   common_projects_service_account = google_service_account.terraform["common-projects"].email
 
   common_projects_organization_roles = [
-    "roles/resourcemanager.projectCreator"
+    "roles/resourcemanager.projectCreator",
+    "roles/resourcemanager.folderCreator",
+    "roles/billing.user",
   ]
   common_projects_project_roles = {
   }
