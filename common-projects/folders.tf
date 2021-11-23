@@ -5,12 +5,12 @@
 #
 
 locals {
-  folder_ids = merge(
+  folder_structure = merge(
     {
-      for i, f in data.google_folder.existing : i => f.id
+      for i, f in data.google_folder.existing : i => f
     },
     {
-      for i, f in google_folder.common_projects : i => f.id
+      for i, f in google_folder.common_projects : i => f
     },
   )
 }
