@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - main
     paths:
       - network/**
   pull_request:
@@ -44,7 +45,7 @@ jobs:
     
     steps:
     - name: Clone repo
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
 
     - name: terrascan
       id: terrascan
@@ -67,7 +68,7 @@ jobs:
     
     steps:
     - name: Clone repo
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
 
     - name: checkov
       id: checkov
@@ -84,7 +85,7 @@ jobs:
     
     steps:
     - name: Clone repo
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
 
     - name: Setup tflint
       uses: terraform-linters/setup-tflint@v1
