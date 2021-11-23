@@ -1,0 +1,172 @@
+name: 'GCP Project Factory'
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - projects/**
+  pull_request:
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./projects
+
+env:
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+  working-directory: ./projects
+  terraform-version: 1.0.11
+  enable-tfsec: 'true'
+
+jobs:
+  tfsec:
+    name: 'tfsec'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: tfsec
+      uses: tfsec/tfsec-sarif-action@v0.0.6
+      with:
+        sarif_file: tfsec.sarif         
+
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: tfsec.sarif    
+
+  terrascan:
+    name: 'terrascan'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Clone repo
+      uses: actions/checkout@master
+
+    - name: terrascan
+      id: terrascan
+      uses: accurics/terrascan-action@main
+      with:
+        iac_dir: './terraform'
+        iac_type: 'terraform'
+        iac_version: 'v14'
+        policy_type: 'gcp'
+        only_warn: true
+        sarif_upload: true
+
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: terrascan.sarif
+
+  checkov:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Clone repo
+      uses: actions/checkout@master
+
+    - name: checkov
+      id: checkov
+      uses: bridgecrewio/checkov-action@master
+      with:
+        directory: ${{ env.working-directory }}
+        download_external_modules: true
+        soft_fail: true
+        quiet: true
+        log_level: INFO
+
+  tflint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Clone repo
+      uses: actions/checkout@master
+
+    - name: Setup tflint
+      uses: terraform-linters/setup-tflint@v1
+      with:
+        tflint_version: latest
+
+    - name: Init tflint
+      run: tflint --init
+
+    - name: tflint
+      run: tflint -f compact
+
+  validate:
+    name: 'terraform validate'
+    runs-on: ubuntu-latest
+      
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    
+    - name: setup terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: ${{ env.terraform-version }}
+
+    - name: init
+      run: terraform init
+
+    - name: validate
+      run: terraform validate
+
+  plan:
+    needs:
+      - validate
+    name: 'terraform plan'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    
+    - name: setup terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: ${{ env.terraform-version }}
+
+    - name: init
+      run: terraform init
+
+    - name: plan
+      run: terraform plan -out tf.plan
+  
+    - name: 'save plan'
+      uses: actions/upload-artifact@v2
+      with:
+        name: tf-plan
+        path: ${{ env.working-directory }}/tf.plan
+  
+  apply:
+    needs:
+      - validate
+      - plan
+    name: 'terraform apply'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    
+    - name: setup terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: ${{ env.terraform-version }}
+
+    - name: init
+      run: terraform init
+
+    - name: 'load plan'
+      uses: actions/download-artifact@v2
+      with:
+        name: tf-plan
+        path: ${{ env.working-directory }}
+
+    - name: apply
+      run: terraform apply -auto-approve tf.plan
