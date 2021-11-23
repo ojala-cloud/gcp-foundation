@@ -5,7 +5,7 @@
 resource "google_storage_bucket" "terraform" {
   for_each = var.section
 
-project = each.value.terraform_project == null ? var.gcp_default_terraform_project : each.value.terraform_project
+  project                     = each.value.terraform_project == null ? var.gcp_default_terraform_project : each.value.terraform_project
   name                        = "${var.common_prefix}terraform-${each.key}"
   location                    = "EU"
   uniform_bucket_level_access = false

@@ -14,7 +14,7 @@ defaults:
     working-directory: ./common-projects
 
 env:
-  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS_COMMON_PROJECTS }}
   working-directory: ./common-projects
   terraform-version: 1.0.11
   enable-tfsec: 'true'

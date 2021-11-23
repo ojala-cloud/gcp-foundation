@@ -13,8 +13,9 @@ section = {
     workflow_enabled = false
   }
   common-projects = {
-    name        = "GCP Common Projects"
-    description = "Common projects for the GCP Organization"
+    name               = "GCP Common Projects"
+    description        = "Common projects for the GCP Organization"
+    google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_COMMON_PROJECTS }}"
   }
   organization = {
     name        = "GCP Organization"
@@ -35,6 +36,6 @@ section = {
 #
 
 gcp_default_terraform_project = "home-infrastructure-254608"
-gcp_default_region = "europe-north1"
-gcp_organization_id = "237024123207"
-common_prefix = "pojala-"
+gcp_default_region            = "europe-north1"
+gcp_organization_id           = "237024123207"
+common_prefix                 = "pojala-"

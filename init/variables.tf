@@ -12,7 +12,7 @@ variable "section" {
     directory          = optional(string)
     features           = optional(map(bool))
     terraform_version  = optional(string)
-    terraform_project = optional(string)
+    terraform_project  = optional(string)
     template_file      = optional(string)
     google_credentials = optional(string)
     workflow_enabled   = optional(bool)
@@ -22,14 +22,14 @@ variable "section" {
 }
 
 variable "gcp_default_terraform_project" {
-    description = "Default project for GCP Foundation Terraform storage"
-    type = string
+  description = "Default project for GCP Foundation Terraform storage"
+  type        = string
 }
 
 variable "gcp_default_region" {
-    description = "Default GCP Region"
-    type = string
-    default = "europe-north1"
+  description = "Default GCP Region"
+  type        = string
+  default     = "europe-north1"
 }
 
 variable "gcp_organization_id" {
