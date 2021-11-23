@@ -36,7 +36,7 @@ projects = {
     random_project_id = true
     folder            = "infrastructure"
     apis = [
-      "clouddns.googleapis.com",
+      "dns.googleapis.com",
     ]
   }
 }
