@@ -39,18 +39,13 @@ locals {
   ]))
 }
 
-output "organization_roles" {
-  value = local.organization_roles
-}
-output "project_roles" {
-  value = local.project_roles
-}
-
 #
 # Roles to the Organization
 #
 
 resource "google_organization_iam_member" "terraform" {
+  provider = google-beta
+
   for_each = {
     for v in local.organization_roles : v.index => v
   }
@@ -65,6 +60,8 @@ resource "google_organization_iam_member" "terraform" {
 #
 
 resource "google_folder_iam_member" "terraform" {
+  provider = google-beta
+
   for_each = {
     for v in local.folder_roles : v.index => v
   }
@@ -79,6 +76,8 @@ resource "google_folder_iam_member" "terraform" {
 #
 
 resource "google_project_iam_member" "terraform" {
+  provider = google-beta
+
   for_each = {
     for v in local.project_roles : v.index => v
   }
