@@ -15,7 +15,7 @@ defaults:
     working-directory: ./organization
 
 env:
-  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS_ORGANIZATION }}
   working-directory: ./organization
   terraform-version: 1.0.11
   enable-tfsec: 'true'

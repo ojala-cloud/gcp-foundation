@@ -32,15 +32,17 @@ section = {
     ]
   }
   organization = {
-    name        = "GCP Organization"
-    description = "GCP Organization settings, policies and logging"
+    name               = "GCP Organization"
+    description        = "GCP Organization settings, policies and logging"
+    google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_ORGANIZATION }}"
     organization_roles = [
       "roles/resourcemanager.organizationAdmin"
     ]
   }
   network = {
-    name        = "GCP Common networking"
-    description = "Common network infrastructure, Shared VPCs and connectivity"
+    name               = "GCP Common networking"
+    description        = "Common network infrastructure, Shared VPCs and connectivity"
+    google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_NETWORK }}"
     organization_roles = [
       "roles/compute.networkAdmin"
     ]
@@ -51,8 +53,9 @@ section = {
     }
   }
   projects = {
-    name        = "GCP Project Factory"
-    description = "Folder and Project Factory"
+    name               = "GCP Project Factory"
+    description        = "Folder and Project Factory"
+    google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_PROJECTS }}"
     organization_roles = [
       "roles/resourcemanager.projectCreator"
     ]
