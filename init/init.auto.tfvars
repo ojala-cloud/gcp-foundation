@@ -15,6 +15,7 @@ section = {
       "roles/iam.serviceAccountAdmin",
       "roles/resourcemanager.organizationAdmin",
       "roles/resourcemanager.folderCreator",
+      "roles/iam.serviceAccountKeyAdmin",
     ]
   }
   common-projects = {
@@ -24,6 +25,7 @@ section = {
     organization_roles = [
       "roles/resourcemanager.projectCreator",
       "roles/resourcemanager.folderCreator",
+      "roles/resourcemanager.organizationAdmin",
       "roles/billing.user",
       # To be able to create Shared VPC in the project
       "roles/compute.xpnAdmin",
