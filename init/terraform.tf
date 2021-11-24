@@ -35,6 +35,10 @@ terraform {
   }
 
   #
-  # Backend is local for init
+  # Backend is local for init initially, after deployment moved to GCS
   #
+  backend "gcs" {
+    bucket = "pojala-terraform-init"
+    prefix = "tf-init"
+  }
 }
