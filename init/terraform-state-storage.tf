@@ -23,8 +23,12 @@ resource "google_storage_bucket_iam_binding" "terraform" {
   for_each = var.section
 
   bucket = google_storage_bucket.terraform[each.key].name
-  role   = "roles/storage.objectAdmin"
+  role   = "roles/storage.admin"
   members = [
+    "user:petri@ojala.cloud",
+    "user:petri.o.ojala@tietoevry.com",
+    "user:ismo.korlin@tietoevry.com",
+    "serviceAccount:${google_service_account.terraform["init"].email}",
     "serviceAccount:${google_service_account.terraform[each.key].email}",
   ]
 }
