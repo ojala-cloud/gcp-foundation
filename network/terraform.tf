@@ -35,7 +35,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket = "pojala-terraform-common-projects"
-    prefix = "tf-common-projects"
+    bucket = "pojala-terraform-network"
+    prefix = "tf-network"
   }
 }
