@@ -16,9 +16,31 @@ variable "section" {
     template_file      = optional(string)
     google_credentials = optional(string)
     workflow_enabled   = optional(bool)
+    # 
+    # IAM Bindings
+    #
+    organization_roles = optional(list(string))
+    folder_roles       = optional(map(list(string)))
+    project_roles      = optional(map(list(string)))
     })
   )
   default = {}
+}
+
+#
+# Folder structure
+#
+
+variable "existing_folders" {
+  description = "List of existing folders"
+  type        = list(string)
+  default     = []
+}
+
+variable "folders" {
+  description = "New folders"
+  type        = list(string)
+  default     = []
 }
 
 variable "gcp_default_terraform_project" {

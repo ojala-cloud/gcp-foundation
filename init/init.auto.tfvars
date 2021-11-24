@@ -11,23 +11,49 @@ section = {
     name             = "Terraform Foundation"
     description      = "Foundation core"
     workflow_enabled = false
+    organization_roles = [
+      "roles/iam.serviceAccountAdmin",
+      "roles/resourcemanager.organizationAdmin",
+      "roles/resourcemanager.folderCreator",
+    ]
   }
   common-projects = {
     name               = "GCP Common Projects"
     description        = "Common projects for the GCP Organization"
     google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_COMMON_PROJECTS }}"
+    organization_roles = [
+      "roles/resourcemanager.projectCreator",
+      "roles/resourcemanager.folderCreator",
+      "roles/billing.user",
+      # To be able to create Shared VPC in the project
+      "roles/compute.xpnAdmin",
+    ]
   }
   organization = {
     name        = "GCP Organization"
     description = "GCP Organization settings, policies and logging"
+    organization_roles = [
+      "roles/resourcemanager.organizationAdmin"
+    ]
   }
   network = {
     name        = "GCP Common networking"
     description = "Common network infrastructure, Shared VPCs and connectivity"
+    organization_roles = [
+      "roles/compute.networkAdmin"
+    ]
+    project_roles = {
+      "shared-vpc-329414" = [
+        "roles/compute.networkAdmin"
+      ],
+    }
   }
   projects = {
     name        = "GCP Project Factory"
     description = "Folder and Project Factory"
+    organization_roles = [
+      "roles/resourcemanager.projectCreator"
+    ]
   }
 }
 
