@@ -57,7 +57,9 @@ section = {
     description        = "Folder and Project Factory"
     google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_PROJECTS }}"
     organization_roles = [
-      "roles/resourcemanager.projectCreator"
+      "roles/resourcemanager.folderCreator",
+      "roles/resourcemanager.projectCreator",
+      "roles/billing.user",
     ]
   }
 }
