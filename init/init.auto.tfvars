@@ -44,11 +44,12 @@ section = {
     description        = "Common network infrastructure, Shared VPCs and connectivity"
     google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_NETWORK }}"
     organization_roles = [
-      "roles/compute.networkAdmin"
+      "roles/compute.networkAdmin",
+      "roles/compute.xpnAdmin",
     ]
     project_roles = {
       "shared-vpc-329414" = [
-        "roles/compute.networkAdmin"
+        "roles/compute.networkAdmin",
       ],
     }
   }
