@@ -5,7 +5,7 @@
 terraform {
   experiments = [module_variable_optional_attrs]
 
-  required_version = "~> 1.0.0"
+  #required_version = "~> 1.0.0"
 
   required_providers {
     google = {
@@ -35,7 +35,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket = "pojala-terraform-common-projects"
-    prefix = "tf-common-projects"
+    bucket = "pojala-terraform-projects"
+    prefix = "tf-projects"
   }
 }
