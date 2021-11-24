@@ -26,6 +26,10 @@ projects = {
     id                = "ojala-network-hub"
     random_project_id = true
     folder            = "infrastructure"
+    apis = [
+      "compute.googleapis.com",
+      "dns.googleapis.com",
+    ]
   }
   #
   # DNS Hub for shared DNS infrastructure and Cloud DNS
@@ -36,6 +40,7 @@ projects = {
     random_project_id = true
     folder            = "infrastructure"
     apis = [
+      "compute.googleapis.com",
       "dns.googleapis.com",
     ]
   }
