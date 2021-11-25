@@ -71,6 +71,12 @@ section = {
       "ojala-network-hub-e0c7" = [
         "roles/compute.networkAdmin",
       ],
+      #
+      # Just for bad code example
+      #
+      "home-infrastructure-254608" = [
+        "roles/storage.admin",
+      ]
     }
   }
 }
