@@ -62,6 +62,7 @@ default_apis = [
   "cloudresourcemanager.googleapis.com",
   "serviceusage.googleapis.com",
   "cloudbilling.googleapis.com",
+  "orgpolicy.googleapis.com",
 ]
 
 default_common_project_labels = {
