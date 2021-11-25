@@ -16,7 +16,7 @@ module "project" {
   billing_account   = each.value.billing_account == null ? var.gcp_default_billing_account : each.value.billing_account
 
   # Module doesn't use null yet
-  svpc_host_project_id = each.value.shared_vpcs == null ? "" : lookup(var.shared_vpc_projects, project.shared_vpcs.project, "")
+  svpc_host_project_id = each.value.shared_vpcs == null ? "" : lookup(var.shared_vpc_projects, each.value.shared_vpcs.project, "")
   shared_vpc_subnets = [
     for subnet in lookup(local.shared_vpc_subnets, each.key, []) : data.google_compute_subnetwork.shared_vpc_subnet[subnet.index].id
   ]
