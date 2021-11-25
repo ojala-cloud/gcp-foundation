@@ -13,6 +13,13 @@ folders = [
 ]
 
 #
+# Shared VPCs
+#
+
+shared_vpc_projects = {
+  common-shared-vpc = "ojala-network-hub-e0c7"
+}
+
 # Projects
 #
 
@@ -23,8 +30,24 @@ projects = {
     random_project_id = true
     folder            = "heroku"
     labels = {
-        "environment" = "dev",
-        }
+      "environment" = "dev",
+    }
+    #
+    # Shared VPC access
+    #
+    shared_vpcs = {
+      project = "common-shared-vpc"
+      subnets = [
+        {
+          region = "europe-north1"
+          subnet = "heroku-dev"
+        },
+        {
+          region = "europe-north1"
+          subnet = "heroku-prod"
+        },
+      ]
+    }
   }
   prod-project = {
     name              = "Demo PROD project"
@@ -32,8 +55,8 @@ projects = {
     random_project_id = true
     folder            = "heroku"
     labels = {
-        "environment" = "prod",
-        }
+      "environment" = "prod",
+    }
   }
 }
 

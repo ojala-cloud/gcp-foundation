@@ -17,8 +17,25 @@ variable "projects" {
     billing_account   = optional(string)
     apis              = optional(list(string))
     labels            = optional(map(string))
+    shared_vpcs = optional(object({
+      project = string
+      subnets = list(object({
+        region = string
+        subnet = string
+      }))
+    }))
   }))
   default = {}
+}
+
+#
+# Shared VPC Host projects
+#
+
+variable "shared_vpc_projects" {
+  description = "Project IDs for Shared VPC hosts"
+  type        = map(string)
+  default     = {}
 }
 
 #
