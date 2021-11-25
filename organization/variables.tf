@@ -9,7 +9,7 @@ variable "folder_policies" {
     folder_id   = string
     policies = list(object({
       policy  = string
-      enforce = optional(bool)
+      enforce = optional(string)
     }))
   }))
   default = []
