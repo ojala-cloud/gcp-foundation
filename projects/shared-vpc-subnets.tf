@@ -24,7 +24,7 @@ locals {
 
 data "google_compute_subnetwork" "shared_vpc_subnet" {
   for_each = {
-      for subnet in local.shared_vpc_subnets_list : subnet.index => subnet
+    for subnet in local.shared_vpc_subnets_list : subnet.index => subnet
   }
 
   name    = each.value.subnet

@@ -42,10 +42,6 @@ projects = {
           region = "europe-north1"
           subnet = "heroku-dev"
         },
-        {
-          region = "europe-north1"
-          subnet = "heroku-prod"
-        },
       ]
     }
   }
@@ -54,8 +50,26 @@ projects = {
     id                = "ojala-heroku-prod"
     random_project_id = true
     folder            = "heroku"
+    shared_vpcs = {
+      project = "common-shared-vpc"
+      subnets = [
+        {
+          region = "europe-north1"
+          subnet = "heroku-prod"
+        },
+      ]
+    }
     labels = {
       "environment" = "prod",
+    }
+  }
+  sandbox-project = {
+    name              = "Demo SANDBOX project"
+    id                = "ojala-heroku-sandbox"
+    random_project_id = true
+    folder            = "heroku"
+    labels = {
+      "environment" = "sandbox",
     }
   }
 }
