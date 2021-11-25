@@ -27,7 +27,7 @@ variable "heroku_projects" {
 # Demo K-Ruoka projects
 #
 
-variable "kruoka_projects" {
+variable "k_ruoka_projects" {
   description = "K-Ruoka Project details"
   type = map(object({
     name              = string
