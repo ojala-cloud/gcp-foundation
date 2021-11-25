@@ -1,4 +1,4 @@
-name: 'Terraform Foundation'
+name: 'GCP Foundation (bootstrap)'
 
 on:
   push:

@@ -8,7 +8,7 @@
 
 section = {
   init = {
-    name             = "Terraform Foundation"
+    name             = "GCP Foundation (bootstrap)"
     description      = "Foundation core"
     workflow_enabled = true
     organization_roles = [
