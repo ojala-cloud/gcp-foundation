@@ -16,11 +16,7 @@ folder_policies = [
         enforce = "true"
       },
       {
-        policy  = "constraints/compute.restrictVpcPeering"
-        enforce = "true"
-      },
-      {
-        policy  = "constraints/compute.vmExternalIpAccess"
+        policy  = "constraints/iam.disableServiceAccountKeyUpload"
         enforce = "true"
       },
     ]
@@ -30,7 +26,7 @@ folder_policies = [
     folder_id   = "1085857631605"
     policies = [
       {
-        policy  = "constraints/compute.vmExternalIpAccess"
+        policy  = "constraints/compute.restrictDedicatedInterconnectUsage"
         enforce = "true"
       },
     ]
