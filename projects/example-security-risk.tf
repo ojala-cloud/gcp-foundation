@@ -12,7 +12,7 @@ resource "google_storage_bucket" "user_error" {
 
 resource "google_storage_bucket_iam_binding" "user_error" {
   bucket = google_storage_bucket.user_error.name
-  role   = "roles/storage.viewer"
+  role   = "roles/storage.objectViewer"
   members = [
     "allUsers",
   ]
