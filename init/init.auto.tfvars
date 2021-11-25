@@ -10,7 +10,7 @@ section = {
   init = {
     name             = "Terraform Foundation"
     description      = "Foundation core"
-    workflow_enabled = false
+    workflow_enabled = true
     organization_roles = [
       "roles/iam.serviceAccountAdmin",
       "roles/resourcemanager.organizationAdmin",
@@ -36,7 +36,8 @@ section = {
     description        = "GCP Organization settings, policies and logging"
     google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_ORGANIZATION }}"
     organization_roles = [
-      "roles/resourcemanager.organizationAdmin"
+      "roles/resourcemanager.organizationAdmin",
+      "roles/resourcemanager.folderViewer",
     ]
   }
   network = {
