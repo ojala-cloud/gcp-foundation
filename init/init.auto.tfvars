@@ -39,6 +39,7 @@ section = {
     organization_roles = [
       "roles/resourcemanager.organizationAdmin",
       "roles/resourcemanager.folderViewer",
+      "roles/resourcemanager.folderIamAdmin",
     ]
   }
   network = {
