@@ -10,6 +10,7 @@ section = {
   init = {
     name             = "GCP Foundation (bootstrap)"
     description      = "Foundation core"
+    google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_INIT }}"
     workflow_enabled = true
     organization_roles = [
       "roles/iam.serviceAccountAdmin",
