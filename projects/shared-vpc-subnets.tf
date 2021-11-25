@@ -4,7 +4,7 @@
 
 locals {
   shared_vpc_subnets = {
-    for name, project in var.projects : name => flatten([
+    for name, project in local.projects : name => flatten([
       for subnet in project.shared_vpcs == null ? [] : lookup(project.shared_vpcs, "subnets", []) : {
         index        = join("_", [project.shared_vpcs.project, subnet.region, subnet.subnet])
         project_name = name

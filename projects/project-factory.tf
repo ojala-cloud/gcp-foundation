@@ -3,7 +3,7 @@
 #
 
 module "project" {
-  for_each = var.projects
+  for_each = local.projects
 
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 11.2" # local.project_factory_version
