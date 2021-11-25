@@ -40,6 +40,7 @@ section = {
       "roles/resourcemanager.organizationAdmin",
       "roles/resourcemanager.folderViewer",
       "roles/resourcemanager.folderIamAdmin",
+      "roles/orgpolicy.policyAdmin",
     ]
   }
   network = {
