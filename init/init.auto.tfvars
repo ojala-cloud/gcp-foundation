@@ -48,7 +48,7 @@ section = {
       "roles/compute.xpnAdmin",
     ]
     project_roles = {
-      "shared-vpc-329414" = [
+      "ojala-network-hub-e0c7" = [
         "roles/compute.networkAdmin",
       ],
     }
@@ -62,6 +62,11 @@ section = {
       "roles/resourcemanager.projectCreator",
       "roles/billing.user",
     ]
+    project_roles = {
+      "ojala-network-hub-e0c7" = [
+        "roles/compute.networkAdmin",
+      ],
+    }
   }
 }
 
