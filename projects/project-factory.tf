@@ -18,8 +18,7 @@ module "project" {
   # Module doesn't use null yet
   svpc_host_project_id = each.value.shared_vpcs == null ? "" : each.value.shared_vpcs.project
   shared_vpc_subnets = [
-    for subnet in lookup(local.shared_vpc_subnets, each.key, []) : "projects/${subnet.host_project}/regions/${subnet.region}/subnetworks/${subnet.subnet}"
-    #for subnet in lookup(local.shared_vpc_subnets, each.key, []) : data.google_compute_subnetwork.shared_vpc_subnet[subnet.index].name
+    for subnet in lookup(local.shared_vpc_subnets, each.key, []) : data.google_compute_subnetwork.shared_vpc_subnet[subnet.index].id
   ]
 
   activate_apis = concat(
