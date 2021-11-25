@@ -13,11 +13,11 @@ folder_policies = [
     policies = [
       {
         policy  = "constraints/sql.restrictPublicIp"
-        enforce = "true"
+        enforce = "TRUE"
       },
       {
         policy  = "constraints/iam.disableServiceAccountKeyUpload"
-        enforce = "true"
+        enforce = "TRUE"
       },
     ]
   },
@@ -27,7 +27,7 @@ folder_policies = [
     policies = [
       {
         policy  = "constraints/compute.restrictDedicatedInterconnectUsage"
-        enforce = "true"
+        enforce = "TRUE"
       },
     ]
   }
