@@ -13,17 +13,22 @@ folders = [
 ]
 
 #
-# Shared VPCs
+# Shared VPC Hosts
 #
 
 shared_vpc_projects = {
   common-shared-vpc = "ojala-network-hub-e0c7"
 }
 
+#
 # Projects
 #
 
 projects = {
+  #
+  # Simple development project in heroku folder
+  # - access to dev subnet in Shared VPC
+  #
   dev-project = {
     name              = "Demo DEV project"
     id                = "ojala-heroku-dev"
@@ -45,6 +50,10 @@ projects = {
       ]
     }
   }
+  #
+  # Simple production project in heroku folder
+  # - access to prod subnet in Shared VPC
+  #
   prod-project = {
     name              = "Demo PROD project"
     id                = "ojala-heroku-prod"
@@ -63,6 +72,9 @@ projects = {
       "environment" = "prod",
     }
   }
+  #
+  # Simple sandbox project in heroku folder without Shared VPC access
+  #
   sandbox-project = {
     name              = "Demo SANDBOX project"
     id                = "ojala-heroku-sandbox"
