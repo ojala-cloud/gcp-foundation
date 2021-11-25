@@ -144,7 +144,7 @@ jobs:
         name: tf-plan
         path: $${{ env.working-directory }}/tf.plan
   
-  showy:
+  show:
     needs:
       - validate
       - plan
