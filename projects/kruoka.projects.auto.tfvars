@@ -14,7 +14,7 @@ k_ruoka_projects = {
     folder            = "k-ruoka"
     labels = {
       "environment" = "dev",
-      "ml" = "analytics",
+      "ml"          = "analytics",
     }
   }
 }
