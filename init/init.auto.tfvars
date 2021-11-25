@@ -61,6 +61,7 @@ section = {
       "roles/resourcemanager.folderCreator",
       "roles/resourcemanager.projectCreator",
       "roles/billing.user",
+      "roles/compute.xpnAdmin",
     ]
     project_roles = {
       "ojala-network-hub-e0c7" = [
