@@ -7,10 +7,10 @@
 #
 
 locals {
-    projects = merge(
-        var.heroku_projects,
-        var.k_ruoka_projects,
-    )
+  projects = merge(
+    var.heroku_projects,
+    var.k_ruoka_projects,
+  )
 }
 
 #
