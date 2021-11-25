@@ -9,7 +9,7 @@ k_ruoka_projects = {
   #
   analytics-dev = {
     name              = "Demo Analytics DEV project"
-    id                = "ojala-k-ruoka-analytics-dev"
+    id                = "k-ruoka-analytics-dev"
     random_project_id = true
     folder            = "k-ruoka"
     labels = {
