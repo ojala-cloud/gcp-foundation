@@ -144,10 +144,39 @@ jobs:
         name: tf-plan
         path: $${{ env.working-directory }}/tf.plan
   
+  showy:
+    needs:
+      - validate
+      - plan
+    name: 'terraform show'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    
+    - name: setup terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: $${{ env.terraform-version }}
+
+    - name: init
+      run: terraform init
+
+    - name: 'load plan'
+      uses: actions/download-artifact@v2
+      with:
+        name: tf-plan
+        path: $${{ env.working-directory }}
+
+    - name: 'show plan'
+      run: terraform show tf.plan
+
   apply:
     needs:
       - validate
       - plan
+      - show
     name: 'terraform apply'
     runs-on: ubuntu-latest
 
