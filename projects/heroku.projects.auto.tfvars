@@ -11,18 +11,6 @@ heroku_projects = {
     labels = {
       "environment" = "sandbox",
     }
-    #
-    # Shared VPC access
-    #
-    shared_vpcs = {
-      project = "common-shared-vpc"
-      subnets = [
-        {
-          region = "europe-north1"
-          subnet = "heroku-dev"
-        },
-      ]
-    }
   }
   #
   # Simple development project in heroku folder
