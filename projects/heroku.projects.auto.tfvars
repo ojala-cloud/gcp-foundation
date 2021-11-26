@@ -3,6 +3,27 @@
 #
 
 heroku_projects = {
+  sandbox-project = {
+    name              = "Demo SANDBOX Heroku project"
+    id                = "ojala-heroku-sbx"
+    random_project_id = true
+    folder            = "heroku"
+    labels = {
+      "environment" = "sandbox",
+    }
+    #
+    # Shared VPC access
+    #
+    shared_vpcs = {
+      project = "common-shared-vpc"
+      subnets = [
+        {
+          region = "europe-north1"
+          subnet = "heroku-dev"
+        },
+      ]
+    }
+  }
   #
   # Simple development project in heroku folder
   # - access to dev subnet in Shared VPC
