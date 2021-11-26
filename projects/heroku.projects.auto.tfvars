@@ -3,7 +3,7 @@
 #
 
 heroku_projects = {
-  sandbox-project = {
+  sbx-project = {
     name              = "Demo SANDBOX Heroku project"
     id                = "ojala-heroku-sbx"
     random_project_id = true
