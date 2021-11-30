@@ -1,17 +1,16 @@
 #
-# GCP Foundation
-#
-
-#
 # Workflows and Templates
 #
 
 section = {
   init = {
-    name             = "GCP Foundation (bootstrap)"
-    description      = "Foundation core"
+    #
+    # Init (Bootstrap) code to deploy GitHub Action Workflows, Terraform Service Accounts and State storage for Terraform
+    #
+    name               = "GCP Foundation (bootstrap)"
+    description        = "Foundation core"
     google_credentials = "$${{ secrets.GOOGLE_CREDENTIALS_INIT }}"
-    workflow_enabled = true
+    workflow_enabled   = true
     organization_roles = [
       "roles/iam.serviceAccountAdmin",
       "roles/resourcemanager.organizationAdmin",
@@ -19,6 +18,9 @@ section = {
       "roles/iam.serviceAccountKeyAdmin",
     ]
   }
+  #
+  # Shared Common projects for GCP Environments
+  #
   common-projects = {
     name               = "GCP Common Projects"
     description        = "Common projects for the GCP Organization"
@@ -32,6 +34,9 @@ section = {
       "roles/compute.xpnAdmin",
     ]
   }
+  #
+  # Organization policies and other common resources for GCP Organization
+  #
   organization = {
     name               = "GCP Organization"
     description        = "GCP Organization settings, policies and logging"
@@ -43,6 +48,9 @@ section = {
       "roles/orgpolicy.policyAdmin",
     ]
   }
+  #
+  # Common Networking and Shared networking resources for GCP Organization
+  #
   network = {
     name               = "GCP Common networking"
     description        = "Common network infrastructure, Shared VPCs and connectivity"
@@ -57,6 +65,9 @@ section = {
       ],
     }
   }
+  #
+  # Project Factory for workload projects
+  #
   projects = {
     name               = "GCP Project Factory"
     description        = "Folder and Project Factory"
@@ -70,22 +81,10 @@ section = {
     project_roles = {
       "ojala-network-hub-e0c7" = [
         "roles/compute.networkAdmin",
-      ],
-      #
-      # Just for bad code example
-      #
-      "home-infrastructure-254608" = [
-        "roles/storage.admin",
       ]
     }
   }
+  #
+  # One could add more sections here, e.g. for workload deployments
+  #
 }
-
-#
-# Development defaults
-#
-
-gcp_default_terraform_project = "home-infrastructure-254608"
-gcp_default_region            = "europe-north1"
-gcp_organization_id           = "237024123207"
-common_prefix                 = "pojala-"

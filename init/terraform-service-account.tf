@@ -9,6 +9,10 @@ resource "google_service_account" "terraform" {
   display_name = each.value.name == null ? "Terraform CI/CD Service Account" : "Terraform ${each.value.name} Service Account"
 }
 
+/*
+
+Do we need this one?
+
 resource "time_rotating" "terraform" {
   rotation_days = 30
 }
@@ -22,3 +26,4 @@ resource "google_service_account_key" "terraform" {
     rotation_time = time_rotating.terraform.rotation_rfc3339
   }
 }
+*/

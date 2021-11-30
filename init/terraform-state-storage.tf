@@ -25,10 +25,13 @@ resource "google_storage_bucket_iam_binding" "terraform" {
   bucket = google_storage_bucket.terraform[each.key].name
   role   = "roles/storage.admin"
   members = [
-    "user:petri@ojala.cloud",
-    "user:petri.o.ojala@tietoevry.com",
-    "user:ismo.korlin@tietoevry.com",
+    #
+    # Init Terraform needs access to set IAM permissions
+    #
     "serviceAccount:${google_service_account.terraform["init"].email}",
+    #
+    # Permissions for a particular workflow's Terraform Service Account
+    #
     "serviceAccount:${google_service_account.terraform[each.key].email}",
   ]
 }

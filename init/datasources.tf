@@ -1,4 +1,4 @@
 #
-# Datasources from GCP Platform
+# Datasources from GCP
 #
 

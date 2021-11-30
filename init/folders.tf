@@ -5,6 +5,9 @@
 #
 
 locals {
+  #
+  # Resource details for all folders
+  #
   folder_structure = merge(
     {
       for i, f in data.google_folder.existing : i => f
@@ -29,8 +32,10 @@ data "google_folder" "existing" {
 #
 # New folders
 #
+# TODO: support for complete folder structure
+#
 
-resource "google_folder" "common_projects" {
+resource "google_folder" "init" {
   for_each = toset(var.folders)
 
   display_name = each.key
