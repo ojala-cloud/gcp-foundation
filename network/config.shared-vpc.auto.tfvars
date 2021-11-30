@@ -3,6 +3,7 @@
 #
 
 shared_vpcs = {
+  /*
   common-shared-vpc = {
     name       = "demo-shared-vpc",
     project_id = "ojala-network-hub-e0c7",
@@ -19,4 +20,5 @@ shared_vpcs = {
       },
     ]
   }
+*/
 }
