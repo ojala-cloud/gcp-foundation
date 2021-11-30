@@ -6,6 +6,13 @@ foundations guide and using modules and best practises from Google Cloud Foundat
 
 The code is built around Github and Github Actions to deploy the environment.
 
+## Links
+
+Links to Google resources:
+
+[Google Example Foundation](https://github.com/terraform-google-modules/terraform-example-foundation) 
+[Google Cloud security foundations guide](https://services.google.com/fh/files/misc/google-cloud-security-foundations-guide.pdf)
+
 ## Init (Bootstrap)
 
 Initial "chicken and egg" code to deploy the very basic resources;
