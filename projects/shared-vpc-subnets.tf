@@ -3,10 +3,14 @@
 #
 
 locals {
+  #
+  # Build an array of objects for each Shared VPC subnet service account details
+  # key = project name in code, value = object of details
+  #
   shared_vpc_subnets = {
-    for name, project in local.projects : name => flatten([
+    for name, project in local.all_projects : name => flatten([
       for subnet in project.shared_vpcs == null ? [] : lookup(project.shared_vpcs, "subnets", []) : {
-        index        = join("_", [project.shared_vpcs.project, subnet.region, subnet.subnet])
+        index        = join("_", [name, project.shared_vpcs.project, subnet.region, subnet.subnet])
         project_name = name
         host_project = lookup(var.shared_vpc_projects, project.shared_vpcs.project, null)
         region       = subnet.region

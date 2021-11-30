@@ -3,17 +3,6 @@
 #
 
 #
-# Folder structure
-#
-
-existing_folders = [
-]
-folders = [
-  "heroku",
-  "k-ruoka",
-]
-
-#
 # Shared VPC Hosts
 #
 
@@ -40,6 +29,8 @@ default_apis = [
   "orgpolicy.googleapis.com",
 ]
 
-default_project_labels = {
-  "application" = "heroku"
+default_project_group_labels = {
+  "heroku" = {
+    "application" = "heroku"
+  }
 }

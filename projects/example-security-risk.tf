@@ -1,3 +1,4 @@
+/*
 #
 # Example code for terrascan and others
 #
@@ -17,3 +18,4 @@ resource "google_storage_bucket_iam_binding" "user_error" {
     "allUsers",
   ]
 }
+*/

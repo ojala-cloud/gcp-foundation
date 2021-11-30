@@ -1,9 +1,9 @@
 #
-# Project Factory provisioning
+# Project Factory provisioning for standard Heroku projects
 #
 
-module "project" {
-  for_each = local.projects
+module "heroku_project" {
+  for_each = var.heroku_projects
 
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 11.2" # local.project_factory_version
@@ -23,11 +23,13 @@ module "project" {
 
   activate_apis = concat(
     var.default_apis,
+    each.value.project_group == null ? [] : lookup(var.default_project_group_apis, each.value.project_group, []),
     each.value.apis == null ? [] : each.value.apis,
   )
 
   labels = merge(
     var.default_project_labels,
+    each.value.project_group == null ? {} : lookup(var.default_project_group_labels, each.value.project_group, {}),
     each.value.labels == null ? {} : each.value.labels,
   )
 }

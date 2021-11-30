@@ -7,9 +7,8 @@
 #
 
 locals {
-  projects = merge(
+  all_projects = merge(
     var.heroku_projects,
-    var.k_ruoka_projects,
   )
 }
 
@@ -55,9 +54,21 @@ variable "default_apis" {
   default     = []
 }
 
+variable "default_project_group_apis" {
+  description = "Default GCP APIs to enable for project group"
+  type        = map(list(string))
+  default     = {}
+}
+
 variable "default_project_labels" {
   description = "Default project labels"
   type        = map(string)
+  default     = {}
+}
+
+variable "default_project_group_labels" {
+  description = "Default project group labels"
+  type        = map(map(string))
   default     = {}
 }
 
@@ -74,10 +85,5 @@ variable "gcp_organization_id" {
 
 variable "gcp_default_billing_account" {
   description = "GCP Billing account"
-  type        = string
-}
-
-variable "common_prefix" {
-  description = "Prefix for common resources"
   type        = string
 }
