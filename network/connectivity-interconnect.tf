@@ -1,0 +1,7 @@
+#
+# Cloud InterConnect configuration
+#
+
+#
+# Placeholder
+#

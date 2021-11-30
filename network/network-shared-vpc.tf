@@ -6,7 +6,7 @@ module "shared_vpc" {
   for_each = var.shared_vpcs
 
   source  = "terraform-google-modules/network/google"
-  version = "~> 4.0"
+  version = "~> 4.0" # local.google_network_version
 
   project_id   = each.value.project_id
   network_name = each.value.name
