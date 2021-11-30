@@ -40,14 +40,6 @@ variable "folders" {
 
 #
 
-variable "module_versions" {
-  description = "Required versions for modules"
-  type        = map(string)
-  default = {
-    "project-factory" = "~> 12.2",
-  }
-}
-
 variable "default_apis" {
   description = "Default GCP APIs to enable"
   type        = list(string)
