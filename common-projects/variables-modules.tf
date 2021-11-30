@@ -6,7 +6,7 @@ variable "module_versions" {
   description = "Required versions for modules"
   type        = map(string)
   default = {
-    "google-network" = "~> 4.0",
+    "google-network"  = "~> 4.0",
     "project-factory" = "~> 11.2",
   }
 }

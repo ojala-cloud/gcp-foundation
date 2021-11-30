@@ -4,7 +4,7 @@
 
 locals {
   project_factory_version = "~> 11.2"
-  google_network_version = "~> 4.0"
+  google_network_version  = "~> 4.0"
 }
 
 data "local_file" "project_factory_module_version_check" {
