@@ -3,49 +3,8 @@
 #
 
 #
-# Project details
+# GCP Environment
 #
-
-
-variable "projects" {
-  description = "Common project details"
-  type = map(object({
-    name              = string
-    id                = string
-    folder            = optional(string)
-    random_project_id = optional(bool)
-    billing_account   = optional(string)
-    apis              = optional(list(string))
-    labels            = optional(map(string))
-  }))
-  default = {}
-}
-
-#
-# Folder structure
-#
-
-variable "existing_folders" {
-  description = "List of existing folders"
-  type        = list(string)
-  default     = []
-}
-
-variable "folders" {
-  description = "New folders"
-  type        = list(string)
-  default     = []
-}
-
-#
-
-variable "module_versions" {
-  description = "Required versions for modules"
-  type        = map(string)
-  default = {
-    "project-factory" = "~> 11.2",
-  }
-}
 
 variable "default_apis" {
   description = "Default GCP APIs to enable"
@@ -72,10 +31,5 @@ variable "gcp_organization_id" {
 
 variable "gcp_default_billing_account" {
   description = "GCP Billing account"
-  type        = string
-}
-
-variable "common_prefix" {
-  description = "Prefix for common resources"
   type        = string
 }
