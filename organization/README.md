@@ -4,6 +4,8 @@ Environment resources for GCP organization such as audit log sinks and organizat
 
 Organization policies can be assigned to organization, folder and project level.
 
+Currently only boolean policy constrains are supported.
+
 ## Modules
 
 n/a

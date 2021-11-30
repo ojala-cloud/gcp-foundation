@@ -92,8 +92,8 @@ resource "google_org_policy_policy" "project" {
     for project_policy in local.project_policies : project_policy.index => project_policy
   }
 
-  name   = "/projects/${each.value.project}/policies/${each.value.policy_name}"
-  parent = "/projects/${each.value.project}"
+  name   = "projects/${each.value.project}/policies/${each.value.policy_name}"
+  parent = "projects/${each.value.project}"
 
   spec {
     rules {
