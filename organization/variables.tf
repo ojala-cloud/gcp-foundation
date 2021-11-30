@@ -2,28 +2,9 @@
 # Configuration variables
 #
 
-variable "folder_policies" {
-  description = "Organization Policy definitions for folders"
-  type = list(object({
-    folder_name = optional(string)
-    folder_id   = string
-    policies = list(object({
-      policy  = string
-      enforce = optional(string)
-    }))
-  }))
-  default = []
-}
-
 #
-
-variable "module_versions" {
-  description = "Required versions for modules"
-  type        = map(string)
-  default = {
-    "project-factory" = "~> 12.2",
-  }
-}
+# Development environment
+#
 
 variable "gcp_default_region" {
   description = "Default GCP Region"

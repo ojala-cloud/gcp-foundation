@@ -4,15 +4,14 @@
 
 locals {
   folder_ids = distinct(flatten([
-    for f in var.folder_policies : f.folder_id
+    for policy in var.organization_policies : policy.folder_ids == null ? [] : policy.folder_ids
   ]))
 
   folder_policies = flatten([
-    for folder_policy in var.folder_policies : [
-      for policy in folder_policy.policies : {
-        index         = join("_", [folder_policy.folder_id, policy.policy])
-        folder        = folder_policy.folder_id
-        folder_name   = folder_policy.folder_name
+    for policy in var.organization_policies : [
+      for folder_id in policy.folder_ids == null ? [] : policy.folder_ids : {
+        index         = join("_", [folder_id, policy.policy])
+        folder        = folder_id
         policy_name   = policy.policy
         configuration = policy
       }
