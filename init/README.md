@@ -3,6 +3,9 @@
 Initialisation code for GitHub Actions workflows, Terraform Service Accounts and Storage buckets for Terraform state files.  As these may
 require folders as well, support for folders is included in the templates.
 
+As the templates also build the GitHub Actions Workflow YAML files, they need to be updated locally and pushed back to the repository.
+The workflow currently doesn't support updating local files and pushing them to the repository from the workflow.
+
 ## Modules
 
 n/a
