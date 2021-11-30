@@ -15,7 +15,8 @@ organization_policies = [
     # Restrict public IP access on Cloud SQL instances
     # boolean constraint
     #
-    enforce = "TRUE"
+    enforce      = "TRUE"
+    organization = true
     folder_ids = [
       "922300282196",  # heroku
       "1085857631605", # k-ruoka
@@ -30,6 +31,10 @@ organization_policies = [
     enforce = "TRUE"
     folder_ids = [
       "1085857631605", # k-ruoka
+    ]
+    project_ids = [
+      "ojala-network-hub-e0c7",
+      "shared-vpc-329414",
     ]
   },
 ]
